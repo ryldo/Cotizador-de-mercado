@@ -1,0 +1,430 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Cotizador de mercado</title>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--  jquery plguin -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- start gallery -->
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		
+		var filterList = {
+		
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#portfoliolist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#portfoliolist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		// Run the show!
+		filterList.init();
+			
+	});	
+	</script>
+<!-- Add fancyBox main JS and CSS files -->
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header">
+		<div class="logo">
+			<h1><a href="index.html"><img src="images/logos/logito.png" alt=""/></a></h1>
+		</div>
+		<div class="h_right">
+			
+			<ul class="menu">
+				<li class="active"><a href="login.html">INICIAR SESION</a></li>
+				<li><a href="registrarse/registrarse.html">REGISTRARSE</a></li>
+				<li><a href="portfolio.html">INFORMACIÓN</a></li>
+				<li><a href="blog.html">NUESTRO BLOG</a></li>
+				<li><a href="landing/landing.html">OFERTAS</a></li>
+			</ul>
+			<div id="sb-search" class="sb-search">
+				<form>
+					<input class="sb-search-input" placeholder="Ingrese su búsqueda" type="text" value="" name="search" id="search">
+					<input class="sb-search-submit" type="submit" value="">
+					<span class="sb-icon-search"></span>
+				</form>
+			</div>
+			<script src="js/classie.js"></script>
+			<script src="js/uisearch.js"></script>
+			<script>
+				new UISearch( document.getElementById( 'sb-search' ) );
+			</script>
+			<!-- start smart_nav * -->
+	        <nav class="nav">
+	            <ul class="nav-list">
+	                <li class="nav-item"><a href="index.html">INICIAR SESION</a></li>
+	                <li class="nav-item"><a href="registrarse/registrarse.html">REGISTRARSE</a></li>
+	                <li class="nav-item"><a href="portfolio.html">INFORMACIÓN</a></li>
+	                <li class="nav-item"><a href="blog.html">NUESTRO BLOG</a></li>
+	                <li class="nav-item"><a href="landing/landing.html">OFERTAS</a></li>
+	                <div class="clear"></div>
+	            </ul>
+	        </nav>
+	        <script type="text/javascript" src="js/responsive.menu.js"></script>
+			<!-- end smart_nav * -->
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="header_btm">
+		<div class="h_left">
+			<h2>Bienvenido a Artikal Zitat !</h2>
+			<h3>Ahora podrá saber dónde comprar a los mejores precios</h3>
+		</div>
+		<div class="soc_icons">
+			<h2>Síguenos también en: </h2>
+				<ul>
+					<li><a class="icon1" href="#"></a></li>
+					<li><a class="icon2" href="#"></a></li>
+					<li><a class="icon3" href="#"></a></li>
+					<li><a class="icon4" href="#"></a></li>
+					<div class="clear"></div>
+				</ul>	
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap" id="princi">
+	<div class="main">
+		<!-- start popup -->    <!-- Menu abierto al presionar sobre imagenes centrales-->
+		<div id="small-dialog" class="mfp-hide">
+			<div class="pop_up">
+			 	<h2>Registrese con nosotros y sea parte del gran equipo de Artikal</h2>
+			 	<img src="images/zoom.jpg" title="image-name"/>
+				<p>Esta iniciativa tiene por objetivo favorecer la economía de los arequipeños</p>
+				<a class="btn" href="details.html">Read more</a>
+			</div>
+		</div>
+		<!-- end popup -->
+		<!-- start gallery  -->
+			<div class="container">
+					<div class="filtros">
+						<ul id="filters" class="clearfix">
+						<li><span class="filter active" data-filter="app card icon logo web">Todos</span></li> /
+						<li><span class="filter" data-filter="app card logo">Mas visitados</span></li> /
+						<li><span class="filter" data-filter="card app web icon">Mas cercanos</span></li> /
+						<li><span class="filter" data-filter="icon web app">Favoritos</span></li> /
+						<li><span class="filter" data-filter="logo app">Top de la semana</span></li> /
+						
+					</ul>
+					</div>
+					
+		<div id="portfoliolist">
+			<a class="popup-with-zoom-anim" href="#small-dialog"> <!--referencia menu popup -->
+				<div class="portfolio logo1" data-cat="logo">
+					<div class="portfolio-wrapper">				
+							<img src="images/logos/metro.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC Metropolitano</p>
+								<span class="text-category">visitalo ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. A.A.Cáceres</h2></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/pesquero.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Mercado "El Pesquero"</p>
+								<span class="text-category">Visitalo ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. Zamácola 123</h2></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio web" data-cat="web">
+					<div class="portfolio-wrapper">						
+							<img src="images/logos/siglo xx.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC siglo XX</p>
+								<span class="text-category">visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. La paz 324</h2></div>
+						</div>
+					</div>
+				</div>				
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/sancamilo.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Mercado San Camilo</p>
+								<span class="text-category">visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Calle pierola 435</h2></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">	
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">
+							<img src="images/logos/altiplano.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC "El altiplano"</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. Venezuela</h2></div>
+						</div>
+					</div>
+				</div>			
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/santa_teresa.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC Santa teresa I</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. Ramón castilla</h2></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/parada.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">La Parada</p>
+								<span class="text-category">te estamos esperando!</span>
+							</div>
+							<div class="label-bg"><h2>Av. Rio Seco</h2></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio logo1" data-cat="logo">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/los_incas.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC Los Incas</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av. Los Incas J.L.B.y R.</h2></div>
+						</div>
+					</div>
+				</div>																																							
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">			
+							<img src="images/logos/portalitos.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Los portalitos</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Urb. Socabaya</h2></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">												
+				<div class="portfolio web" data-cat="web">
+					<div class="portfolio-wrapper">						
+							<img src="images/logos/yanahuara.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC Yanahuara</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av del Ejército 105</h2></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">																
+				<div class="portfolio icon" data-cat="icon">
+					<div class="portfolio-wrapper">
+							<img src="images/logos/don_ramon.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Feria "Don Ramón"</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Siglo XX</h2></div>
+						</div>
+					</div>
+				</div>			
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">													
+				<div class="portfolio icon" data-cat="icon">
+					<div class="portfolio-wrapper">						
+							<img src="images/logos/virgen.JPG"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">CC Virgen de chapi</p>
+								<span class="text-category">Visitanos ya!</span>
+							</div>
+							<div class="label-bg"><h2>Av Perú cerro colorado</h2></div>
+						</div>
+					</div>
+				</div>		
+			</a>	
+		</div>
+	</div><!-- end container -->
+	</div>
+</div>
+</div>
+<div class="footer_bg">
+<div class="wrap">
+	<div class="footer">
+		<div class="span_of_4">
+			<div class="span1_of_4">
+				<div class="titulos">
+				<h4>Crecemos cada dia más</h4>
+				</div>
+				<div class="textos">
+				<p class="top">Con el apoyo de la comunidad arequipeña incentivamos el crecimiento de los productores y comerciantes de bajor recursos.</p>
+				
+				<p>Esta es una iniciativa creada por i-Byte s.a.</p>
+				<p>Contamos con el apoyo de ADEMA</p>
+				<p>Cuenta con el respaldo de la A.M.P.A.</p>
+				</div>				
+				<div class="f_icons">
+						<ul>
+							<li><a class="icon2" href="#"></a></li>
+							<li><a class="icon1" href="#"></a></li>
+							<li><a class="icon3" href="#"></a></li>
+							<li><a class="icon4" href="#"></a></li>
+							<li><a class="icon5" href="#"></a></li>
+						</ul>	
+				</div>
+			</div>
+			<div class="span1_of_4">
+				<div class="titulos">
+				<h4>¿Cómo utilizar?</h4>
+				</div>
+				<div class="textos">
+				   <p>1. Seleccione el centro de abastos.</p>
+				   <p>2. Vea los productos que ofrece.</p>
+				   <p>(también las ofertas)</p>
+				   <p>3. Compare los precios y sepa dónde comprar !! </p>
+				</div>
+				
+			</div>
+			<div class="span1_of_4">
+				<div class="titulos">
+			   <h4>Utilidades</h4>
+				</div>
+				
+				<span class="bg">Esta herramienta nos facilita la elección de los mejores lugares donde comprar nuestros productos</span>
+				<span class="bg top">Sólo con seleccionar el mercado podemos ver los productos que se ofrecen</span>
+				<span class="bg">Además podemos contactar a los productores para mayor información</span>
+			</div>
+			<div class="span1_of_4">
+				<div class="titulos"><h4>Otros enlaces de interés</h4></div>
+				
+			<ul class="f_nav">
+				<li><a href="http://www.sunat.gob.pe/"><img src="images/iconos/sunat1.gif" alt=""> </a></li>
+				
+				<li><a href="https://www.facebook.com/MuniArequipa/"><img src="images/iconos/muni_provincialaqp-292x300.jpg" alt=""> </a></li>
+				
+				<li><a href="http://www.regionarequipa.gob.pe/"><img src="images/iconos/Gobierno.jpg" alt=""> </a></li>
+				
+				<li><a href="https://www.natursan.net/frutas-beneficios-y-propiedades/"><img src="images/iconos/frutas.jpg" alt=""> </a></li>
+				
+				<li><a href="http://rpp.pe/lima/actualidad/el-aporte-nutricional-de-las-menestras-noticia-415602"><img src="images/iconos/menestras.jpg" alt=""> </a></li>
+				
+				<li><a href="http://www.efesalud.com/blog-salud-prevencion/10-pequenos-cambios-para-mejorar-tu-salud/"><img src="images/iconos/salud.jpg" alt=""> </a></li>
+				
+			</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="footer_top">
+			<div>	
+				<div class="menu">
+				<ul>
+					<li class="active"><a href="index.html">Inicio</a></li>
+					<li><a href="about.html">Nosotros</a></li>
+					<li><a href="portfolio.html">Información</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="landing/landing.html">Ofertas</a></li>
+				</ul>
+			   </div>
+		</div>
+			
+			<div class="copy">
+				<p class="link"><span>© All rights reserved | i-Byte <a href="http://w3layouts.com/">i-Byte s.a.</a></span></p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
